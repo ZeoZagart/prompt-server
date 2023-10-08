@@ -17,7 +17,7 @@ async function searchPrompt(request: SearchPromptRequest): Promise<SearchPromptR
 		size: request.page_size,
 		from: request.offset,
 	})
-	console.log(`Found ${JSON.stringify(res.body.hits.hits)} prompts matching ${request}`)
+	console.log(`Found ${JSON.stringify(res.body.hits.hits)} prompts matching ${JSON.stringify(request)}`)
 	const data = res.body.hits.hits.map((hit: any) => hit._source)
 	return {
 		next_offset: request.offset + data.length,

@@ -18,7 +18,7 @@ services:
         POSTGRES_PASSWORD: password
         POSTGRES_DB: promptdb
       volumes:
-        - db_data:./volumes/postgres
+        - db-data:/Users/abhash/Desktop/gpt-4/bunlearn/hi-elysia/volumes/postgres
     elasticsearch:
       image: elasticsearch:7.17.13
       ports:
@@ -29,7 +29,7 @@ services:
         - xpack.security.enabled=false
         - bootstrap.memory_lock=true
       volumes:
-        - search_data:./volumes/elasticsearch
+        - search-data:/Users/abhash/Desktop/gpt-4/bunlearn/hi-elysia/volumes/elasticsearch
 
 volumes:
   db-data:
