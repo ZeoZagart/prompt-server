@@ -1,5 +1,6 @@
 import { Elysia } from "elysia";
 import { PromptsGroup } from "./routes/prompts";
+import 'elastic-apm-node/start'
 
 const app = new Elysia()
   .use(PromptsGroup)

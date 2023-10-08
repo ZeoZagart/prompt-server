@@ -1,9 +1,9 @@
 import { Elysia } from 'elysia';
-import { CreatePrompt } from '../service/prompts/handlers';
-import { ECreatePromptRequest, ECreatePromptResponse } from '../models/prompts';
+import { CreatePromptApi } from '../service/prompts/handlers';
+import { ECreatePromptRequest, ECreatePromptResponse } from '../models/requests';
 
 const promptsGroup = new Elysia({ prefix: '/prompts' }).
-  post("/", ({body, set}) => CreatePrompt(body), {
+  post("/", ({body, set}) => CreatePromptApi(body), {
     body: ECreatePromptRequest,
     response: ECreatePromptResponse,
   }).

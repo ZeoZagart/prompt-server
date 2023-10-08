@@ -17,3 +17,6 @@ services:
         POSTGRES_USER: promptserver
         POSTGRES_PASSWORD: password
         POSTGRES_DB: promptdb
+    elasticsearch:
+      image: elasticsearch:8.10.2
+      

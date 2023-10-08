@@ -11,7 +11,7 @@ async function testCreatePrompt() {
 			desc: 'Hello world prompt',
 			params: [{
 				name: 'name',
-				type: 'hello',
+				type: 'string',
 			}]
 		}),
 	});

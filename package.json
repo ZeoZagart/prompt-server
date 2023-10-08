@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "@prisma/client": "^5.3.1",
+    "elastic-apm-node": "^4.0.0",
     "elysia": "latest",
     "prisma": "^5.3.1"
   },
