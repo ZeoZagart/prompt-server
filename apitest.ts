@@ -7,7 +7,7 @@ async function testCreatePrompt() {
 			'Content-Type': 'application/json'
 		},
 		body: JSON.stringify({
-			text: 'Hello World',
+			text: 'Hello {{name}}',
 			desc: 'Hello world prompt',
 			params: [{
 				name: 'name',
@@ -26,8 +26,8 @@ async function testSearchPrompt() {
 			'Content-Type': 'application/json'
 		},
 		body: JSON.stringify({
-			query: 'Hello World 3',
-			offset: 4,
+			query: 'Hello',
+			offset: 0,
 			page_size: 2,
 		}),
 	});
@@ -35,5 +35,24 @@ async function testSearchPrompt() {
 	console.log(`Search result: ${JSON.stringify(body)}`);
 }
 
+async function testUsePrompt() {
+	const res = await fetch('http://localhost:3000/prompts/use', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({
+			id: 6,
+			params: [{
+				name: 'name',
+				value: 'tester',
+			}],
+		}),
+	});
+	const body = await res.text();
+	console.log(`UsePrompt result: ${JSON.stringify(body)}`);
+}
+
 await testCreatePrompt()
 await testSearchPrompt()
+await testUsePrompt()

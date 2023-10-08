@@ -10,6 +10,11 @@ export type PromptParam = {
 	type: EType;
 }
 
+export type PromptParamValue = {
+	name: string;
+	value: string;
+}
+
 export enum EType {
 	Number = 'number',
 	String = 'string',

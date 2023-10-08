@@ -1,7 +1,7 @@
 import { CreatePromptRequest, CreatePromptResponse, SearchPromptRequest, SearchPromptResponse, UsePromptRequest, UsePromptResponse } from '../../models/requests';
 import { createPrompt, getPrompt } from '../../clients/promptdb_client';
 import { insertPrompt, searchPrompt } from '../../clients/elasticsearch_client';
-import { Prompt, PromptParam } from '../../models/prompts';
+import { Prompt, PromptParam, PromptParamValue } from '../../models/prompts';
 import { respond } from '../../clients/openai_client';
 
 export async function CreatePromptApi(request: CreatePromptRequest): Promise<CreatePromptResponse> {
@@ -29,16 +29,19 @@ export async function UsePromptApi(request: UsePromptRequest): Promise<UsePrompt
 	const prompt = await getPrompt(request.id)
 	const filledPrompt = applyParams(prompt, request.params)
 	console.log(`Applied params: ${filledPrompt}`)
-	const result = await respond(filledPrompt)
 	return {
-		result: result,
+		result: filledPrompt,
 	}
+	//const result = await respond(filledPrompt)
+	//return {
+		//result: result,
+	//}
 }
 
-function applyParams(prompt: Prompt, params: PromptParam[]): string {
+function applyParams(prompt: Prompt, params: PromptParamValue[]): string {
 	let result = prompt.text
 	for (const param of params) {
-		result = result.replace(`{${param.name}}`, param.name)
+		result = result.replace(`{{${param.name}}}`, param.value)
 	}
 	return result
 }	

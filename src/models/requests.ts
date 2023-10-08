@@ -7,6 +7,11 @@ export const EPromptParam = t.Object({
 	type: t.Enum(EType),
 })
 
+export const EPromptParamValue = t.Object({
+	name: t.String(),
+	value: t.String(),
+})
+
 export const ECreatePromptRequest = t.Object({
 	text: t.String(),
   	desc: t.String(),
@@ -43,7 +48,7 @@ export const ESearchPromptResponse = t.Object({
 
 export const EUsePromptRequest = t.Object({
 	id: t.Integer(),
-	params: t.Array(EPromptParam),
+	params: t.Array(EPromptParamValue),
 })
 
 export const EUsePromptResponse = t.Object({
