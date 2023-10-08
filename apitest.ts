@@ -15,7 +15,7 @@ async function testCreatePrompt() {
 			}]
 		}),
 	});
-	const body = await res.json();
+	const body = await res.text();
 	console.log(`Insert response: ${JSON.stringify(body)}`);
 }
 
@@ -26,10 +26,12 @@ async function testSearchPrompt() {
 			'Content-Type': 'application/json'
 		},
 		body: JSON.stringify({
-			query: 'Hello World',
+			query: 'Hello World 3',
+			offset: 4,
+			page_size: 2,
 		}),
 	});
-	const body = await res.json();
+	const body = await res.text();
 	console.log(`Search result: ${JSON.stringify(body)}`);
 }
 

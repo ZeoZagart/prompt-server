@@ -17,6 +17,8 @@ services:
         POSTGRES_USER: promptserver
         POSTGRES_PASSWORD: password
         POSTGRES_DB: promptdb
+      volumes:
+        - db_data:./volumes/postgres
     elasticsearch:
       image: elasticsearch:7.17.13
       ports:
@@ -26,5 +28,9 @@ services:
         - ELASTIC_PASSWORD=password
         - xpack.security.enabled=false
         - bootstrap.memory_lock=true
+      volumes:
+        - search_data:./volumes/elasticsearch
 
-      
+volumes:
+  db-data:
+  search-data:

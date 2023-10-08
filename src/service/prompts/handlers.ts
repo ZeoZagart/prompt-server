@@ -16,10 +16,8 @@ export async function CreatePromptApi(request: CreatePromptRequest): Promise<Cre
 }
 
 export async function SearchPromptApi(request: SearchPromptRequest): Promise<SearchPromptResponse> {
-	console.log(`SearchPrompt: ${request.query}`)
-	const result = await searchPrompt(request.query)
+	console.log(`SearchPrompt: ${request}`)
+	const result = await searchPrompt(request)
 
-	return {
-		prompts: result,
-	}
+	return result
 }

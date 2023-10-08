@@ -32,10 +32,13 @@ export const EGetPromptResponse = t.Object({
 
 export const ESearchPromptRequest = t.Object({
 	query: t.String(),
+	offset: t.Integer(),
+	page_size: t.Integer(),
 })
 
 export const ESearchPromptResponse = t.Object({
 	prompts: t.Array(EGetPromptResponse),
+	next_offset: t.Integer(),
 })
 
 export type PromptParam = Static<typeof EPromptParam>;
