@@ -8,7 +8,7 @@ export const EPromptParam = t.Object({
 })
 
 export const ECreatePromptRequest = t.Object({
-	prompt: t.String(),
+	text: t.String(),
   	desc: t.String(),
 	params: t.Array(EPromptParam),
 })
@@ -30,8 +30,18 @@ export const EGetPromptResponse = t.Object({
 	params: t.Array(EPromptParam),
 })
 
+export const ESearchPromptRequest = t.Object({
+	query: t.String(),
+})
+
+export const ESearchPromptResponse = t.Object({
+	prompts: t.Array(EGetPromptResponse),
+})
+
 export type PromptParam = Static<typeof EPromptParam>;
 export type CreatePromptRequest = Static<typeof ECreatePromptRequest>;
 export type CreatePromptResponse = Static<typeof ECreatePromptResponse>;
 export type GetPromptRequest = Static<typeof EGetPromptRequest>;
 export type GetPromptResponse = Static<typeof EGetPromptResponse>;
+export type SearchPromptRequest = Static<typeof ESearchPromptRequest>;
+export type SearchPromptResponse = Static<typeof ESearchPromptResponse>;

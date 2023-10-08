@@ -1,5 +1,5 @@
 export type Prompt = {
-	id?: number;
+	id: number;
 	desc: string;
 	text: string;
 	params: PromptParam[];

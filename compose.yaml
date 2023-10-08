@@ -18,5 +18,13 @@ services:
         POSTGRES_PASSWORD: password
         POSTGRES_DB: promptdb
     elasticsearch:
-      image: elasticsearch:8.10.2
+      image: elasticsearch:7.17.13
+      ports:
+        - "9200:9200"
+      environment:
+        - discovery.type=single-node
+        - ELASTIC_PASSWORD=password
+        - xpack.security.enabled=false
+        - bootstrap.memory_lock=true
+
       

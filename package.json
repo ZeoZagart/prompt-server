@@ -6,8 +6,8 @@
     "dev": "bun run --watch src/index.ts"
   },
   "dependencies": {
+    "@elastic/elasticsearch": "7.17",
     "@prisma/client": "^5.3.1",
-    "elastic-apm-node": "^4.0.0",
     "elysia": "latest",
     "prisma": "^5.3.1"
   },

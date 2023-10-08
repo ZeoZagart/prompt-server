@@ -1,17 +1,25 @@
-import { CreatePromptRequest, CreatePromptResponse } from '../../models/requests';
+import { CreatePromptRequest, CreatePromptResponse, SearchPromptRequest, SearchPromptResponse } from '../../models/requests';
 import { CreatePrompt } from '../../clients/promptdb_client';
+import { insertPrompt, searchPrompt } from '../../clients/elasticsearch_client';
 
 export async function CreatePromptApi(request: CreatePromptRequest): Promise<CreatePromptResponse> {
-	console.log(`CreatePrompt: ${request.prompt}`)
-	const result = await CreatePrompt({
-			text: request.prompt,
-			desc: request.desc,
-			params: request.params,
-	})
-	console.log(`result: ${JSON.stringify(result)}`);
+	console.log(`CreatePrompt: ${request.text}`)
+	const result = await CreatePrompt(request)
+
+	await insertPrompt(result)
+
 	return {
-		id: result.id!!,
+		id: result.id,
 		success: true,
 		url: "http://localhost:3000/prompt/" + result.id,
+	}
+}
+
+export async function SearchPromptApi(request: SearchPromptRequest): Promise<SearchPromptResponse> {
+	console.log(`SearchPrompt: ${request.query}`)
+	const result = await searchPrompt(request.query)
+
+	return {
+		prompts: result,
 	}
 }
