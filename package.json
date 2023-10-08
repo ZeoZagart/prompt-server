@@ -9,6 +9,7 @@
     "@elastic/elasticsearch": "7.17",
     "@prisma/client": "^5.3.1",
     "elysia": "latest",
+    "openai": "^4.11.1",
     "prisma": "^5.3.1"
   },
   "devDependencies": {
