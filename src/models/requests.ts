@@ -41,6 +41,15 @@ export const ESearchPromptResponse = t.Object({
 	next_offset: t.Integer(),
 })
 
+export const EUsePromptRequest = t.Object({
+	id: t.Integer(),
+	params: t.Array(EPromptParam),
+})
+
+export const EUsePromptResponse = t.Object({
+	result: t.String(),
+})
+
 export type PromptParam = Static<typeof EPromptParam>;
 export type CreatePromptRequest = Static<typeof ECreatePromptRequest>;
 export type CreatePromptResponse = Static<typeof ECreatePromptResponse>;
@@ -48,3 +57,5 @@ export type GetPromptRequest = Static<typeof EGetPromptRequest>;
 export type GetPromptResponse = Static<typeof EGetPromptResponse>;
 export type SearchPromptRequest = Static<typeof ESearchPromptRequest>;
 export type SearchPromptResponse = Static<typeof ESearchPromptResponse>;
+export type UsePromptRequest = Static<typeof EUsePromptRequest>;
+export type UsePromptResponse = Static<typeof EUsePromptResponse>;
