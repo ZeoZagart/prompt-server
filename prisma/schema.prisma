@@ -13,3 +13,13 @@ model Prompt {
   desc   String
   params Json?
 }
+
+model ContextDatabase {
+  id          Int     @id @default(autoincrement())
+  name        String
+  description String
+  scriptId    String
+  scriptEnv   Json?
+  rawDataLoc  String
+  contextDBId String
+}

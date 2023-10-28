@@ -102,7 +102,7 @@ Database will contain the following fields:
    - **Future:** users can build an image locally and push it to our ECR which can used to create vectorDB.
 4. vectorDB reference
 5. S3 bucket for reference files
-6. Description
+6. Name and Description
 
 ### Usage of Context database in prompt
 1. Prompt can be told to use a particular context database using id field
