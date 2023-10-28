@@ -1,6 +1,6 @@
 import { Client } from '@elastic/elasticsearch';
 import { Prompt } from '../models/prompts';
-import { SearchPromptRequest, SearchPromptResponse } from '../models/requests';
+import { SearchPromptRequest, SearchPromptResponse } from '../models/requests/prompts';
 
 const client = new Client({ node: Bun.env.ELASTIC_URL!! });
 

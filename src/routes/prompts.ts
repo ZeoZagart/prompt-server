@@ -1,6 +1,6 @@
 import { Elysia } from 'elysia';
 import { CreatePromptApi, SearchPromptApi, UsePromptApi } from '../service/prompts/handlers';
-import { ECreatePromptRequest, ECreatePromptResponse, ESearchPromptRequest, ESearchPromptResponse, EUsePromptRequest, EUsePromptResponse } from '../models/requests';
+import { ECreatePromptRequest, ECreatePromptResponse, ESearchPromptRequest, ESearchPromptResponse, EUsePromptRequest, EUsePromptResponse } from '../models/requests/prompts';
 
 const promptsGroup = new Elysia({ prefix: '/prompts' }).
   post("/", ({body, set}) => CreatePromptApi(body), {

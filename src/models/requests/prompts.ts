@@ -1,6 +1,6 @@
 import { Elysia, t } from 'elysia'
 import { Static } from '@sinclair/typebox'
-import { EType } from './prompts'
+import { EType } from '../prompts'
 
 export const EPromptParam = t.Object({
 	name: t.String(),

@@ -1,4 +1,4 @@
-import { CreatePromptRequest, CreatePromptResponse, SearchPromptRequest, SearchPromptResponse, UsePromptRequest, UsePromptResponse } from '../../models/requests';
+import { CreatePromptRequest, CreatePromptResponse, SearchPromptRequest, SearchPromptResponse, UsePromptRequest, UsePromptResponse } from '../../models/requests/prompts';
 import { createPrompt, getPrompt } from '../../clients/promptdb_client';
 import { insertPrompt, searchPrompt } from '../../clients/elasticsearch_client';
 import { Prompt, PromptParam, PromptParamValue } from '../../models/prompts';

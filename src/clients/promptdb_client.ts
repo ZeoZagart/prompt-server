@@ -1,6 +1,6 @@
 import {PrismaClient } from "@prisma/client";
 import { Prompt } from "../models/prompts";
-import { CreatePromptRequest } from "../models/requests";
+import { CreatePromptRequest } from "../models/requests/prompts";
 import { integer } from "@elastic/elasticsearch/api/types";
 const prisma = new PrismaClient();
 
