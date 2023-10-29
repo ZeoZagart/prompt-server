@@ -1,8 +1,9 @@
 import { CreatePromptRequest, CreatePromptResponse, SearchPromptRequest, SearchPromptResponse, UsePromptRequest, UsePromptResponse } from '../../models/requests/prompts';
 import { createPrompt, getPrompt } from '../../clients/promptdb_client';
 import { insertPrompt, searchPrompt } from '../../clients/elasticsearch_client';
-import { Prompt, PromptParam, PromptParamValue } from '../../models/prompts';
+import { Prompt } from '../../models/prompts';
 import { respond } from '../../clients/openai_client';
+import { Variable, VariableValue } from '../../models/requests/shared';
 
 export async function CreatePromptApi(request: CreatePromptRequest): Promise<CreatePromptResponse> {
 	console.log(`CreatePrompt: ${request.text}`)
@@ -38,7 +39,7 @@ export async function UsePromptApi(request: UsePromptRequest): Promise<UsePrompt
 	//}
 }
 
-function applyParams(prompt: Prompt, params: PromptParamValue[]): string {
+function applyParams(prompt: Prompt, params: VariableValue[]): string {
 	let result = prompt.text
 	for (const param of params) {
 		result = result.replace(`{{${param.name}}}`, param.value)

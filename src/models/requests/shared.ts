@@ -20,3 +20,4 @@ export const EVariableValue = t.Object({
 
 
 export type Variable = Static<typeof EVariable>;
+export type VariableValue = Static<typeof EVariableValue>;

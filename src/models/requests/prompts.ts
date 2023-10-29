@@ -44,7 +44,6 @@ export const EUsePromptResponse = t.Object({
 	result: t.String(),
 })
 
-export type PromptParam = Static<typeof EVariable>;
 export type CreatePromptRequest = Static<typeof ECreatePromptRequest>;
 export type CreatePromptResponse = Static<typeof ECreatePromptResponse>;
 export type GetPromptRequest = Static<typeof EGetPromptRequest>;
