@@ -14,12 +14,12 @@ model Prompt {
   params Json?
 }
 
-model ContextDatabase {
+model Context {
   id          Int     @id @default(autoincrement())
   name        String
   description String
   scriptId    String
   scriptEnv   Json?
   rawDataLoc  String
-  contextDBId String
+  databaseLoc String
 }

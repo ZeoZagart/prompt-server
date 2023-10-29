@@ -1,23 +1,12 @@
-import { Elysia, t } from 'elysia'
+import { t } from 'elysia'
 import { Static } from '@sinclair/typebox'
-import { EType } from '../prompts'
-
-export const EPromptParam = t.Object({
-	name: t.String(),
-	type: t.Enum(EType),
-})
-
-export const EPromptParamValue = t.Object({
-	name: t.String(),
-	value: t.String(),
-})
+import { EVariable, EVariableValue } from './shared'
 
 export const ECreatePromptRequest = t.Object({
 	text: t.String(),
   	desc: t.String(),
-	params: t.Array(EPromptParam),
+	params: t.Array(EVariable),
 })
-
 
 export const ECreatePromptResponse = t.Object({
 	id: t.Integer(),
@@ -32,7 +21,7 @@ export const EGetPromptRequest = t.Object({
 export const EGetPromptResponse = t.Object({
 	id: t.Integer(),
 	desc: t.String(),
-	params: t.Array(EPromptParam),
+	params: t.Array(EVariable),
 })
 
 export const ESearchPromptRequest = t.Object({
@@ -48,14 +37,14 @@ export const ESearchPromptResponse = t.Object({
 
 export const EUsePromptRequest = t.Object({
 	id: t.Integer(),
-	params: t.Array(EPromptParamValue),
+	params: t.Array(EVariableValue),
 })
 
 export const EUsePromptResponse = t.Object({
 	result: t.String(),
 })
 
-export type PromptParam = Static<typeof EPromptParam>;
+export type PromptParam = Static<typeof EVariable>;
 export type CreatePromptRequest = Static<typeof ECreatePromptRequest>;
 export type CreatePromptResponse = Static<typeof ECreatePromptResponse>;
 export type GetPromptRequest = Static<typeof EGetPromptRequest>;

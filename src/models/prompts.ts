@@ -1,3 +1,5 @@
+import { VariableType } from "./requests/shared";
+
 export type Prompt = {
 	id: number;
 	desc: string;
@@ -7,16 +9,10 @@ export type Prompt = {
 
 export type PromptParam = {
 	name: string;
-	type: EType;
+	type: VariableType;
 }
 
 export type PromptParamValue = {
 	name: string;
 	value: string;
-}
-
-export enum EType {
-	Number = 'number',
-	String = 'string',
-	Boolean = 'boolean',
 }
