@@ -1,5 +1,5 @@
 import { CreatePromptRequest, CreatePromptResponse, SearchPromptRequest, SearchPromptResponse, UsePromptRequest, UsePromptResponse } from '../../models/requests/prompts';
-import { createPrompt, getPrompt } from '../../clients/promptdb_client';
+import { createPrompt, getPrompt } from '../../clients/db/promptdb_client';
 import { insertPrompt, searchPrompt } from '../../clients/elasticsearch_client';
 import { Prompt } from '../../models/prompts';
 import { respond } from '../../clients/openai_client';

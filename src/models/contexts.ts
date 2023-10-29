@@ -4,7 +4,7 @@ export type Context = {
 	id: number;
 	name: string;
 	description: string;
-	script: string;
+	scriptId: string;
 	scriptEnv: Variable[];
 	rawDataLoc: string;
 	databaseLoc: string;

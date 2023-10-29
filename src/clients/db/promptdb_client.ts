@@ -1,9 +1,9 @@
 import {PrismaClient } from "@prisma/client";
-import { Prompt } from "../models/prompts";
-import { CreatePromptRequest } from "../models/requests/prompts";
+import { Prompt } from "../../models/prompts";
+import { CreatePromptRequest } from "../../models/requests/prompts";
 import { integer } from "@elastic/elasticsearch/api/types";
-import { Variable } from "../models/requests/shared";
-const prisma = new PrismaClient();
+import { Variable } from "../../models/requests/shared";
+import { prisma } from "./shared";
 
 
 export async function createPrompt(prompt: CreatePromptRequest): Promise<Prompt> {
