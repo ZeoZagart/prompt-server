@@ -22,3 +22,5 @@ export async function getContext(id: number): Promise<Context> {
 		scriptEnv: res.scriptEnv as Variable[],
 	}
 }
+
+export async function listContexts(): Promise<Context[]> {
